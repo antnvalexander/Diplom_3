@@ -112,9 +112,9 @@ public class LinkClickabilityTest {
         loginPage.checkLoginButton();
     }
 
-    @DisplayName("Проверка переходов по разделам")
+    @DisplayName("Проверка перехода в раздел Соусы")
     @Test
-    public void testSuccessfulSwitch() {
+    public void testSuccessfulSwitchToSauces() {
         orderPage = new OrderPage(driver);
         orderPage.clickLoginButton();
 
@@ -124,9 +124,35 @@ public class LinkClickabilityTest {
 
         orderPage.clickSaucesButton();
         orderPage.checkSaucesNameSectionField();
+    }
+
+    @DisplayName("Проверка переходов в раздел Начинки")
+    @Test
+    public void testSuccessfulSwitchToToppings() {
+        orderPage = new OrderPage(driver);
+        orderPage.clickLoginButton();
+
+        loginPage = new LoginPage(driver);
+        loginPage.fillLoginForm(email, password);
+        loginPage.clickLoginButton();
 
         orderPage.clickToppingsButton();
         orderPage.checkToppingsNameSectionField();
+    }
+
+    @DisplayName("Проверка переходов в раздел Булки")
+    @Test
+    public void testSuccessfulSwitch() {
+        orderPage = new OrderPage(driver);
+        orderPage.clickLoginButton();
+
+        loginPage = new LoginPage(driver);
+        loginPage.fillLoginForm(email, password);
+        loginPage.clickLoginButton();
+
+        //Сначала открываем раздел Соусы, далее переходим в раздел Булки.
+        //Т.к. Булки открывается по умолчанию, нужно сначала открыть другой раздел
+        orderPage.clickSaucesButton();
 
         orderPage.clickBunButton();
         orderPage.checkBunNameSectionField();

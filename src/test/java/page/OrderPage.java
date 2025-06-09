@@ -19,9 +19,9 @@ public class OrderPage {
     private By saucesButton = By.xpath("//span[text()='Соусы']");
     private By toppingsButton = By.xpath("//span[text()='Начинки']");
     private By bunButton = By.xpath("//span[text()='Булки']");
-    private By bunNameSectionField = By.xpath("//h2[text()='Булки']");
-    private By toppingsNameSectionField = By.xpath("//h2[text()='Начинки']");
-    private By saucesNameSectionField = By.xpath("//h2[text()='Соусы']");
+    private By bunNameSectionFieldSelected = By.xpath("//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span[text()='Булки']");
+    private By toppingsNameSectionFieldSelected = By.xpath("//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span[text()='Начинки']");
+    private By saucesNameSectionFieldSelected = By.xpath("//div[contains(@class, 'tab_tab_type_current__2BEPc')]/span[text()='Соусы']");
 
 
     public OrderPage(WebDriver driver) {
@@ -33,17 +33,17 @@ public class OrderPage {
 
     @Step("Проверили наличие заголовка Булки")
     public void checkBunNameSectionField() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(bunNameSectionField)).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(bunNameSectionFieldSelected)).isDisplayed();
     }
 
     @Step("Проверили наличие заголовка Начинки")
     public void checkToppingsNameSectionField() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(toppingsNameSectionField)).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(toppingsNameSectionFieldSelected)).isDisplayed();
     }
 
     @Step("Проверили наличие заголовка Соусы")
     public void checkSaucesNameSectionField() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(saucesNameSectionField)).isDisplayed();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(saucesNameSectionFieldSelected)).isDisplayed();
     }
 
     @Step("Выполнили нажатие кнопки Булки")
